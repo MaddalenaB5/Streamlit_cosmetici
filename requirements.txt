@@ -1,0 +1,7 @@
+streamlit 
+urllib.parse
+bs4
+requests
+re
+PyPDF2
+io
