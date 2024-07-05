@@ -1,7 +1,4 @@
-streamlit 
-urllib.parse
-bs4
+streamlit
 requests
-re
+beautifulsoup4
 PyPDF2
-io
