@@ -66,7 +66,7 @@ def is_valid_url(url):
 def main():
     st.title("Ingredient analysis")
 
-    with open('CIR_Reports.html', encoding='utf-8') as fp1:
+    with open('Cir.html', encoding='utf-8') as fp1:
         soup = BeautifulSoup(fp1, "html.parser")
 
     tabella = soup.find('table', class_='table')
