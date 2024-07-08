@@ -24,17 +24,13 @@ def scarica_pdf(url):
 
 # Funzione per estrarre tutto il testo dal PDF
 def estrai_testo_pdf(contenuto_pdf_binario):
-    try:
-        reader = PdfReader(contenuto_pdf_binario)
-        lunghezza_pdf = len(reader.pages)
-        testo_estratto = ""
-        for pagina in range(lunghezza_pdf):
-            oggetto_pagina = reader.pages[pagina]
-            testo_estratto += oggetto_pagina.extract_text()
-        return testo_estratto
-    except Exception as e:
-        st.warning(f"Questo PDF non è analizzabile: {e}")
-        return None
+    reader = PdfReader(contenuto_pdf_binario)
+    lunghezza_pdf = len(reader.pages)
+    testo_estratto = ""
+    for pagina in range(lunghezza_pdf):
+        oggetto_pagina = reader.pages[pagina]
+        testo_estratto += oggetto_pagina.extract_text()
+    return testo_estratto
 
 
 # Funzione per estrarre il contesto attorno a una parola chiave
@@ -58,7 +54,7 @@ def estrai_contesto(testo_estratto, keyword, context_lines=2):
 
 
 # Funzione per verificare se un URL è valido
-def is_valid_url(url):
+def controllo_validita_url(url):
     return url.startswith('http://') or url.startswith('https://')
 
 
@@ -80,7 +76,7 @@ def main():
             url_completo = urljoin(url_sito, href)
             nomi_links.append((nome_ingrediente, url_completo))
 
-    # Rimuovi duplicati
+    # Rimuoviamo duplicati
     nomi_links_univoci = []
     visti = set()
     for n_ingr, l_ingr in nomi_links:
@@ -95,11 +91,19 @@ def main():
         ingredienti = []
         for n_ingr, l_ingr in nomi_links_univoci:
             if richiesta_utente in n_ingr.lower():
-                ingredienti.append((n_ingr, l_ingr))
+                ingredienti.append(n_ingr)
 
         if ingredienti:
-            for nome, url_ingrediente in ingredienti:
-                st.sidebar.markdown(f"## {nome}")
+            ingrediente_scelto = st.selectbox("Scegli un ingrediente:", ingredienti)
+
+            if ingrediente_scelto:
+                url_ingrediente = None
+                for n_ingr, l_ingr in nomi_links_univoci:
+                    if n_ingr == ingrediente_scelto:
+                        url_ingrediente = l_ingr
+                        break
+
+                st.sidebar.markdown(f"## {ingrediente_scelto}")
                 response = requests.get(url_ingrediente)
                 soup = BeautifulSoup(response.content, 'html.parser')
                 tabella_pdf = soup.find('table', class_='table')
@@ -114,11 +118,11 @@ def main():
                 # Filtra i link non validi
                 links_ingrediente_validi = []
                 for url in links_ingrediente:
-                  if is_valid_url(url):
-                    links_ingrediente_validi.append(url)
+                    if controllo_validita_url(url):
+                        links_ingrediente_validi.append(url)
 
                 for pdf_url in links_ingrediente_validi:
-                    st.write(f"Dati estratti dal PDF per {nome}: {pdf_url}")
+                    st.write(f"Dati estratti dal PDF per {ingrediente_scelto}: {pdf_url}")
                     contenuto_pdf_binario = scarica_pdf(pdf_url)
                     if contenuto_pdf_binario:
                         testo = estrai_testo_pdf(contenuto_pdf_binario)
@@ -134,24 +138,23 @@ def main():
                             for keyword in keywords_ld50:
                                 contesti_LD50.extend(estrai_contesto(testo, keyword))
 
-                            with st.expander(f"Dettagli NOAEL per {nome}"):
+                            with st.expander(f"Dettagli NOAEL per {ingrediente_scelto}"):
                                 if contesti_noael:
                                     for cont in contesti_noael:
                                         st.write(cont)
                                         st.write("\n" + "=" * 80 + "\n")
                                 else:
-                                    st.write("Nessun dato NOAEL trovato.")
+                                    st.write("Nessun valore per NOAEL trovato.")
 
-                            with st.expander(f"Dettagli LD50 per {nome}"):
+                            with st.expander(f"Dettagli LD50 per {ingrediente_scelto}"):
                                 if contesti_LD50:
                                     for cont in contesti_LD50:
                                         st.write(cont)
                                         st.write("\n" + "=" * 80 + "\n")
                                 else:
-                                    st.write("Nessun dato LD50 trovato.")
+                                    st.write("Nessun valore per LD50 trovato.")
                         else:
-                            st.warning(
-                                f"Il PDF non è analizzabile. Visita il link per maggiori informazioni: {pdf_url}")
+                            st.warning(f"Il PDF non è analizzabile. Visita il link per maggiori informazioni: {pdf_url}")
         else:
             st.error("Spiacente, l'ingrediente da te selezionato non è stato trovato.")
 
