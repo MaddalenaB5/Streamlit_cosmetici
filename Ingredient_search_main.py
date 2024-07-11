@@ -2,7 +2,7 @@ import streamlit as st
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 import requests
-
+from io import BytesIO
 from functions import scarica_pdf, estrai_testo_pdf, estrai_contesto, controllo_validita_url
 
 
