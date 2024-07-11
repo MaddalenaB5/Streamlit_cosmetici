@@ -22,7 +22,7 @@ def main():
             url_completo = urljoin(url_sito, href)
             nomi_links.append((nome_ingrediente, url_completo))
 
-    # Rimozione dei duplicati
+    #Rimozione degli eventuali duplicati
     nomi_links_univoci = []
     visti = set()
     for n_ingr, l_ingr in nomi_links:
@@ -30,7 +30,7 @@ def main():
             nomi_links_univoci.append((n_ingr, l_ingr))
             visti.add((n_ingr, l_ingr))
 
-    # Parola inserita dall'utente
+    #Parola inserita dall'utente
     richiesta_utente = st.text_input("Inserisci il nome di un ingrediente: ").lower()
 
     if richiesta_utente:
@@ -60,7 +60,7 @@ def main():
                         url_completo_ingrediente = urljoin(url_sito, href1)
                         links_ingrediente.append(url_completo_ingrediente)
 
-                # Filtra i link non validi
+                #Filtra gli eventuali link non validi
                 links_ingrediente_validi = []
                 for url in links_ingrediente:
                     if controllo_validita_url(url):
@@ -89,7 +89,7 @@ def main():
                                         st.write(cont)
                                         st.write("\n" + "=" * 80 + "\n")
                                 else:
-                                    st.write("Nessun valore per NOAEL trovato.")
+                                    st.write("Nessun valore NOAEL trovato.")
 
                             with st.expander(f"Dettagli LD50 per {ingrediente_scelto}"):
                                 if contesti_LD50:
@@ -97,11 +97,11 @@ def main():
                                         st.write(cont)
                                         st.write("\n" + "=" * 80 + "\n")
                                 else:
-                                    st.write("Nessun valore per LD50 trovato.")
+                                    st.write("Nessun valore LD50 trovato.")
                         else:
                             st.warning(f"Il PDF non è analizzabile. Visita il link per maggiori informazioni: {pdf_url}")
         else:
-            st.error("Spiacente, l'ingrediente da te selezionato non è stato trovato.")
+            st.error("L'ingrediente da te selezionato non è stato trovato.")
 
 
 if __name__ == "__main__":
