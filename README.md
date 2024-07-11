@@ -27,6 +27,11 @@ streamlit run Ingredient_main.py
 Tramite questo link è possibile utilizzare la nostra web app
 https://appcosmetici-n4ziichyt7vc4o7k3t7sxs.streamlit.app/
 
+
+## Note
+Assicurati che il file 'Cir.html' sia presente nella directory del tuo script
+
+
 ## Autori
 @alexandraazzena
 @MaddalenaB5
