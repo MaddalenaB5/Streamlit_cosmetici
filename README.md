@@ -16,7 +16,8 @@ https://github.com/MaddalenaB5/Streamlit_cosmetici/assets/168538339/e4c38871-329
 1. Clona la repository nel tuo pc
 2. Crea e attiva il virtual environment
 3. Installa le librerie necessarie, utilizza il file 'requirements.txt'
-4. Utilizzando il terminale esegui l'applicazione streamlit
+4. Assicurati che il file 'Cir.html' sia presente nella directory del tuo script
+5. Utilizzando il terminale esegui l'applicazione streamlit
 
 ```cmd
 streamlit run Ingredient_main.py
@@ -29,8 +30,7 @@ https://appcosmetici-n4ziichyt7vc4o7k3t7sxs.streamlit.app/
 
 
 ## Note
-Assicurati che il file 'Cir.html' sia presente nella directory del tuo script
-
+Questa web app si basa sulla struttura html e sui pdf del sito 'Cir'. Ogni modifica a
 
 ## Autori
 @alexandraazzena
