@@ -18,31 +18,39 @@ https://github.com/MaddalenaB5/Streamlit_cosmetici/assets/168538339/e4c38871-329
 - Gli utenti possono inserire il nome di un ingrediente nel campo di testo fornito.
 - L'applicazione cerca nel file HTML pre-caricato (Cir.html) per trovare i nomi degli ingredienti corrispondenti e i relativi link.
 
+
 2. Visualizzazione degli Ingredienti
 - Se l'input corrisponde a uno dei nomi degli ingredienti, apparirà un menu a tendina per consentire all'utente di scegliere l'ingrediente specifico.
+
 
 3. Download e Analisi dei PDF
 - Dopo aver selezionato un ingrediente, l'applicazione recupera tutti i link ai PDF correlati.
 - Valida ogni link per assicurarsi che siano URL corretti.
 - Scarica i file PDF da questi link.
 
+
 4. Estrazione delle Informazioni dai PDF
 - L'applicazione estrae il contenuto testuale dai PDF scaricati.
 - Cerca parole chiave specifiche (NOAEL e LD50) all'interno del testo.
 - Visualizza il contesto attorno a queste parole chiave, evidenziandole per una facile identificazione.
 
+
 ## Panoramica delle Funzioni
 1. scarica_pdf(url)
 - Scarica un PDF dall'URL fornito e lo converte in formato binario utilizzando BytesIO.
 
+
 3. estrai_testo_pdf(contenuto_pdf_binario)
 - Estrae e restituisce il contenuto testuale dal contenuto PDF binario fornito.
+
 
 4. estrai_contesto(testo_estratto, keyword, context_lines=2)
 - Trova e restituisce il contesto attorno a una data parola chiave all'interno del testo estratto. Evidenzia la parola chiave per una migliore visibilità.
 
+
 5. controllo_validita_url(url)
 - Verifica se l'URL fornito è valido (cioè, inizia con http:// o https://).
+
 
 6. main()
 - La funzione principale che inizializza e esegue l'applicazione Streamlit. Gestisce gli input degli utenti, visualizza le opzioni, scarica i PDF ed estrae le informazioni rilevanti.
