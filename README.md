@@ -19,7 +19,7 @@ https://github.com/MaddalenaB5/Streamlit_cosmetici/assets/168538339/e4c38871-329
 4. Utilizzando il terminale esegui l'applicazione streamlit
 
 ```cmd
-streamlit run <script_name>.py
+streamlit run Ingredient_main.py
 ```
 
 
