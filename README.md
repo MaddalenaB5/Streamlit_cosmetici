@@ -18,15 +18,15 @@ https://github.com/MaddalenaB5/Streamlit_cosmetici/assets/168538339/e4c38871-329
 3. Installa le librerie necessarie, utilizza il file 'requirements.txt'
 4. Utilizzando il terminale esegui l'applicazione streamlit
 
+```cmd
+streamlit run <script_name>.py
+```
+
 
 ## Link alla web app
 Tramite questo link è possibile utilizzare la nostra web app
 https://appcosmetici-n4ziichyt7vc4o7k3t7sxs.streamlit.app/
 
-```cmd
-pip install python 
-pip install redis
-```
 ## Autori
 @alexandraazzena
 @MaddalenaB5
