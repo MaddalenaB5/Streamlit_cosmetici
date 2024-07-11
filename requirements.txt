@@ -2,4 +2,3 @@ streamlit
 requests
 beautifulsoup4
 PyPDF2
-from functions import scarica_pdf, estrai_testo_pdf, estrai_contesto, controllo_validita_url
