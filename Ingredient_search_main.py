@@ -23,7 +23,7 @@ def main():
             url_completo = urljoin(url_sito, href)
             nomi_links.append((nome_ingrediente, url_completo))
 
-    # Rimozione duplicati
+    # Rimozione dei duplicati
     nomi_links_univoci = []
     visti = set()
     for n_ingr, l_ingr in nomi_links:
@@ -44,11 +44,10 @@ def main():
             ingrediente_scelto = st.selectbox("Scegli un ingrediente: ", ingredienti)
 
             if ingrediente_scelto:
-                url_ingrediente = ""  # cambiato none con ''
+                url_ingrediente = ""
                 for n_ingr, l_ingr in nomi_links_univoci:
                     if n_ingr == ingrediente_scelto:
                         url_ingrediente = l_ingr
-                        break  # forse si può togliere
 
                 st.sidebar.markdown(f"## {ingrediente_scelto}")
                 response = requests.get(url_ingrediente)
