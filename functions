@@ -1,8 +1,11 @@
-import requests                # Effettuare le richieste HTTP
-from io import BytesIO         # Gestire il contenuto binario del PDF
-from PyPDF2 import PdfReader   # Leggere il contenuto del PDF
-import re                      # Utilizzare le espressioni regolari
-import streamlit as st  
+import streamlit as st
+from urllib.parse import urljoin
+from bs4 import BeautifulSoup
+import requests
+import re
+from PyPDF2 import PdfReader
+from io import BytesIO
+
 
 # Funzione per scaricare il PDF. Utilizziamo BytesIO per convertire il pdf in binario.
 def scarica_pdf(url):
@@ -44,7 +47,7 @@ def estrai_contesto(testo_estratto, keyword, context_lines=2):
             start = max(0, i - context_lines)
             end = min(len(righe), i + context_lines + 1)
             contesto = "\n".join(righe[start:end])
-            contesto = pattern.sub(f"**{keyword}**", contesto) # Parola chiave messa in grassetto
+            contesto = pattern.sub(f"**{keyword}**", contesto)  # Parola chiave messa in grassetto
             risultati.append(contesto)
     return risultati
 
