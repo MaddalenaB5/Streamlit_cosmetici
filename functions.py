@@ -7,7 +7,7 @@ from PyPDF2 import PdfReader
 from io import BytesIO
 
 
-# Funzione per scaricare il PDF. Utilizziamo BytesIO per convertire il pdf in binario.
+#Funzione per scaricare il PDF. Utilizziamo BytesIO per convertire il pdf in binario
 def scarica_pdf(url):
     response = requests.get(url)
     if response.status_code == 200:
@@ -22,7 +22,7 @@ def scarica_pdf(url):
         return None
 
 
-# Funzione per estrarre tutto il testo dai PDF
+#Funzione per estrarre tutto il testo dai PDF
 def estrai_testo_pdf(contenuto_pdf_binario):
     reader = PdfReader(contenuto_pdf_binario)
     lunghezza_pdf = len(reader.pages)
@@ -33,13 +33,13 @@ def estrai_testo_pdf(contenuto_pdf_binario):
     return testo_estratto
 
 
-# Funzione per estrarre il contesto attorno alla parola chiave
+#Funzione per estrarre il contesto attorno alla parola chiave
 def estrai_contesto(testo_estratto, keyword, context_lines=2):
     if testo_estratto is None:
         return []
 
     righe = testo_estratto.split('\n')
-    pattern = re.compile(re.escape(keyword), re.IGNORECASE)  # Permette di trovare la parola chiave comunque sia scritta
+    pattern = re.compile(re.escape(keyword), re.IGNORECASE)  #Permette di trovare la parola chiave comunque sia scritta
 
     risultati = []
     for i, riga in enumerate(righe):
@@ -47,11 +47,11 @@ def estrai_contesto(testo_estratto, keyword, context_lines=2):
             start = max(0, i - context_lines)
             end = min(len(righe), i + context_lines + 1)
             contesto = "\n".join(righe[start:end])
-            contesto = pattern.sub(f"**{keyword}**", contesto)  # Parola chiave messa in grassetto
+            contesto = pattern.sub(f"**{keyword}**", contesto)  #Parola chiave messa in grassetto
             risultati.append(contesto)
     return risultati
 
 
-# Funzione per verificare se un url è valido
+#Funzione per verificare se un url è valido
 def controllo_validita_url(url):
     return url.startswith('http://') or url.startswith('https://')
