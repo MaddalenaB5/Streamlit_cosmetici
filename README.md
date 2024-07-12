@@ -9,8 +9,7 @@ Una volta selezionato un ingrediente sarà possibile:
 - Consultare direttamente i pdf associati cliccando il link
 - Aprire i menù a tendina in cui vengono mostrati tutti i valori di 'NOAEL' e 'LD50' presenti nel pdf con il relativo contesto.
 
-https://github.com/MaddalenaB5/Streamlit_cosmetici/assets/168538339/e4c38871-3299-434c-880f-56efe9157170
-
+https://github.com/user-attachments/assets/3cc04b9f-47df-4193-a739-e6da6c3a9e20
 
 ## Link alla web app
 Tramite questo link è possibile utilizzare direttamente la nostra web app 
