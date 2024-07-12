@@ -13,6 +13,11 @@ Una volta selezionato un ingrediente sarà possibile:
 https://github.com/MaddalenaB5/Streamlit_cosmetici/assets/168538339/e4c38871-3299-434c-880f-56efe9157170
 
 
+## Link alla web app
+Tramite questo link è possibile utilizzare direttamente la nostra web app 
+https://appcosmetici-n4ziichyt7vc4o7k3t7sxs.streamlit.app/
+
+
 ## Caratteristiche principali e panoramica del codice
 **1. Ricerca di un Ingrediente**
 - Gli utenti possono inserire il nome di un ingrediente nel campo di testo fornito.
@@ -66,11 +71,6 @@ https://github.com/MaddalenaB5/Streamlit_cosmetici/assets/168538339/e4c38871-329
 ```cmd
 streamlit run Ingredient_main.py
 ```
-
-
-## Link alla web app
-Tramite questo link è possibile utilizzare direttamente la nostra web app
-https://appcosmetici-n4ziichyt7vc4o7k3t7sxs.streamlit.app/
 
 
 ## Note
