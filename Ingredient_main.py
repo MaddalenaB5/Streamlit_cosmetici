@@ -6,7 +6,7 @@ from functions import scarica_pdf, estrai_testo_pdf, estrai_contesto, controllo_
 
 
 def main():
-    st.title("Ingredient analysis")
+    st.title("SafeCosmetic")
 
     with open('Cir.html', encoding='utf-8') as fp1:
         soup = BeautifulSoup(fp1, "html.parser")
