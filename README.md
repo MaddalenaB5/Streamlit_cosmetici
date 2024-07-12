@@ -1,5 +1,5 @@
 # Cir Ingredient Search
-Questa web app nasce per l'esigenza di un biologo cosmetologo di velocizzare e ottimizzare i processi di ricerca dei valori di tossicità  NOAEL e LD50 sul sito "CIR" che valuta la sicurezza degli ingredienti utilizzati nei prodotti cosmetici.
+Questa web app nasce per l'esigenza di un biologo cosmetologo di velocizzare e ottimizzare i processi di ricerca dei valori di tossicità 'NOAEL' e 'LD50' sul sito "CIR" che valuta la sicurezza degli ingredienti utilizzati nei prodotti cosmetici.
 
 
 ## Funzionalità della web app
