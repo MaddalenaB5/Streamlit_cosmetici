@@ -30,7 +30,7 @@ def main():
             nomi_links_univoci.append((n_ingr, l_ingr))
             visti.add((n_ingr, l_ingr))
 
-    #Parola inserita dall'utente
+    #Ingrediente inserito dall'utente
     richiesta_utente = st.text_input("Inserisci il nome di un ingrediente: ").lower()
 
     if richiesta_utente:
@@ -67,7 +67,7 @@ def main():
                         links_ingrediente_validi.append(url)
 
                 for pdf_url in links_ingrediente_validi:
-                    st.write(f"Dati estratti dal PDF per {ingrediente_scelto}: {pdf_url}")
+                    st.write(f"Dati estratti dal PDF per {ingrediente_scelto}: [Download pdf]({pdf_url})")
                     contenuto_pdf_binario = scarica_pdf(pdf_url)
                     if contenuto_pdf_binario:
                         testo = estrai_testo_pdf(contenuto_pdf_binario)
